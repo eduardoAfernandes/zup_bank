@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.zup_it.zup_bank.entities.Customer;
 
 @Repository
-public interface UserRepository extends JpaRepository<Customer, Long>{
+public interface CustomerRepository extends JpaRepository<Customer, Long>{
 
 }

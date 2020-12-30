@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zup_it.zup_bank.entities.Customer;
-import com.zup_it.zup_bank.repositories.UserRepository;
+import com.zup_it.zup_bank.repositories.CustomerRepository;
 
 @Service
-public class UserServices {
+public class CustomerServices {
 	
 	@Autowired
-	private UserRepository repository;
+	private CustomerRepository repository;
 	
 	//Metodo para retornar todos os clientes
 	public List<Customer> findAll(){
@@ -24,5 +24,10 @@ public class UserServices {
 	public Customer findById(Long id){			
 		Optional<Customer>obj = repository.findById(id);		
 		return obj.get();
+	}
+	
+	//Metodo para inserir um novo cliente em nossa base
+	public Customer insert(Customer obj) {
+		return repository.save(obj);
 	}
 }

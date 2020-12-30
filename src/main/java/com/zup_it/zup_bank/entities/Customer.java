@@ -26,12 +26,19 @@ public class Customer implements Serializable{
 	
 	@Column(unique = true)
 	private String cpf;
+	
 	private Instant dataNascimento;
 	
 	
+	
+	
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	//Criacao do construtor de nossa classe
-	
-	
 	public Customer(Long id, String name, String email, String cpf, Instant dataNascimento) {
 		super();
 		this.id = id;
