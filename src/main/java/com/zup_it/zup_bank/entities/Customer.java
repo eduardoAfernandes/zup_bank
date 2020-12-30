@@ -2,11 +2,15 @@ package com.zup_it.zup_bank.entities;
 
 import java.io.Serializable;
 import java.time.Instant;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.*;
+
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class Customer implements Serializable{
@@ -19,11 +23,15 @@ public class Customer implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank(message = "Ops... Campo nome nao pode ser vazio!!")
 	private String name;
 	
+	@Email(message = "Ops... Campo email inválido!!")
 	@Column(unique = true)
 	private String email;
 	
+	@Length(min = 11, max=11, message = "Ops... Campo CPF deve conter 11 caracteres!!")
 	@Column(unique = true)
 	private String cpf;
 	
